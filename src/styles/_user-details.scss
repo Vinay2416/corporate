@@ -1,0 +1,38 @@
+@import './variables';
+
+.user-details .employee-profile-header {
+    align-items: center !important;
+    &:hover {
+        box-shadow: none;
+    }
+}
+
+.user-details .sub-topnav.nav {
+    li {
+        padding: 0 !important;
+        width: 120px;
+    }
+
+    .active a::after {
+        width: 100%;
+        left: 0;
+        border-top: 3px solid var(--primary-color) !important;
+    }
+}
+
+.previousBtn span {
+    color: var(--primary-color) !important;
+}
+
+.question-description p {
+    display: inline !important;
+}
+
+.questions {
+    flex-basis: 60% !important;
+    background-color: var(--primary-background-color);
+}
+
+.answers-list {
+    flex-basis: 40% !important;
+}

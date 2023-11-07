@@ -1,0 +1,45 @@
+<div class="login gradient-background d-flex justify-content-center align-items-center">
+    <form class="form w-400 bg-white p-20 rounded" (ngSubmit)="onSignup()" [formGroup]="signUpForm">
+        <div class="w-48 h-48 mx-auto rounded-circle">
+            <label for="fileInput" class="w-100 cursor-pointer">
+                <img [src]="imgUrl" class="w-100 h-48 rounded-circle object-fit-cover" />
+            </label>
+            <input type="file" (change)="onImageChange($event)" id="fileInput" accept="image/*" class="fileInput" />
+        </div>
+        <div class="form-group">
+            <label>User name</label>
+            <input type="text" class="form-control input-md" formControlName="name" />
+            <app-validation-message [validators]="validationMessages['name']" [control]="signUpForm.get('name')" (input)="OnInput('name')"></app-validation-message>
+        </div>
+        <div class="form-group">
+            <label>Job title</label>
+            <input type="text" class="form-control input-md" formControlName="jobTitle" />
+            <app-validation-message [validators]="validationMessages['jobTitle']" [control]="signUpForm.get('jobTitle')" (input)="OnInput('jobTitle')"></app-validation-message>
+        </div>
+
+        <div class="form-group ">
+            <label>Department</label>
+            <input type="text" class="form-control input-md" formControlName="department" />
+            <app-validation-message [validators]="validationMessages['department']" [control]="signUpForm.get('department')" (input)="OnInput('department')"></app-validation-message>
+        </div>
+        <div class="form-group ">
+            <label>Location</label>
+            <input type="text" class="form-control input-md" formControlName="location" />
+            <app-validation-message [validators]="validationMessages['location']" [control]="signUpForm.get('location')" (input)="OnInput('location')"></app-validation-message>
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="text" class="form-control input-md" formControlName="email" (input)="OnInput('email')" />
+            <app-validation-message [validators]="validationMessages['email']" [control]="signUpForm.get('email')" ></app-validation-message>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control input-md" formControlName="password" />
+            <app-validation-message [validators]="validationMessages['password']" [control]="signUpForm.get('password')" (input)="OnInput('password')"></app-validation-message>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn text-white mt-10">Sign Up</button>
+        </div>
+        <p class="text-center mt-10">Already have an account ? <span class="text-link text-decoration-underline" (click)="onLoginClick()">Log in</span></p>
+    </form>
+</div>

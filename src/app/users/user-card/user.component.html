@@ -1,0 +1,32 @@
+<div class="card employee-profile-card" *ngIf="user">
+    <div class="employee-profile-header vstack cursor-pointer">
+        <div class="d-flex py-12 pl-16">
+            <app-user-profile-picture [imagePath]="user.profilePicture" class="profile profile-60 mt-1"> </app-user-profile-picture>
+            <div class="employee-details">
+                <h5>{{ user.name }}</h5>
+                <span class="text-secondary">{{ user.jobTitle }}</span>
+                <span class="text-secondary">{{ user.department }}, {{ user.location }}</span>
+                <div class="d-flex align-items-center mt-1">
+                    <i class="ki ki-thumb-up-fill text-accent-green"></i>
+                    <span class="mr-16">{{ user.likes }}</span>
+                    <i class="ki ki-thumb-down-fill text-accent-red"></i>
+                    <span class="">{{ user.disLikes }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex w-100 questions-count">
+            <div class="vstack align-items-center border-right p-12">
+                <span class="font-weight-semi-bold">{{ user.questionsAsked }}</span>
+                <span class="text-secondary text-x-small">Questions Asked</span>
+            </div>
+            <div class="vstack align-items-center border-right p-12">
+                <span class="font-weight-semi-bold">{{ user.questionsAnswered }}</span>
+                <span class="text-secondary text-x-small">Questions Answered</span>
+            </div>
+            <div class="vstack align-items-center p-12">
+                <span class="font-weight-semi-bold">{{ user.questionsSolved }}</span>
+                <span class="text-secondary text-x-small">Questions Solved</span>
+            </div>
+        </div>
+    </div>
+</div>

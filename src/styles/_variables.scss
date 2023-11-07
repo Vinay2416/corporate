@@ -1,0 +1,37 @@
+:root {
+    --primary-color: #76618b;
+    --primary-bg-color-dark: #1b2531;
+    --primary-color-light: #d6e8f7;
+    --primary-color-text: #222;
+    --secondary-color-text: #777;
+    --primary-background-color: #fff;
+    --background-color-hover: #f8f8f9;
+    --input-border-color: #d8dde6;
+    --secondary-background-color: #f3f4f7;
+
+    --secondary-bg-color: #ffff;
+    --selected-bg-color: #f9f8f6;
+    --primary-border-color: #d4d7dc;
+    --left-nav-bg: #3e4249;
+    --success-color: #86c06a;
+    --answer-title-bg-color: #e3e6e9;
+    --question-bg-color: #f2f1f0;
+}
+
+.theme-dark {
+    --primary-color-light: #293d56;
+    --primary-color-text: #e4e6e9;
+    --secondary-color-text: #a2a9b4;
+    --border-color: #384252;
+    --primary-background-color: #273143;
+    --background-color-hover: #2b3647;
+    --input-border-color: #404e63;
+    //following variables are custamized for this project, these are not defined in keka cdn
+    --secondary-background-color: #1b2531;
+    --secondary-bg-color: #2f394c;
+    --selected-bg-color: #333d4e;
+    --primary-border-color: #384252; //had to change few border colors since this border color is not present in keka cdn
+    --left-nav-bg: #273143;
+    --answer-title-bg-color: #2f394c;
+    --question-bg-color: #333d4e;
+}

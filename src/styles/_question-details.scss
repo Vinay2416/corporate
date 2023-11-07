@@ -1,0 +1,24 @@
+@import '../styles/variables';
+
+.question {
+    background-color: var(--question-bg-color) !important;
+    border-radius: 0 4px 0 0;
+}
+
+.answers-title {
+    background-color: var(--answer-title-bg-color);
+}
+
+.check input[type='checkbox']:checked + label::before {
+    background-color: var(--success-color) !important;
+    border: none;
+}
+
+.answers-title {
+    border-top: 1px solid var(--primary-border-color);
+    border-bottom: 1px solid var(--primary-border-color);
+}
+
+.ki {
+    cursor: pointer;
+}

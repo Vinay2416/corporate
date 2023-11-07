@@ -1,0 +1,45 @@
+<div class="d-flex py-12 px-16 previousBtn">
+    <p class="d-flex gap-2 cursor-pointer" [routerLink]="['/users']">
+        <span class="ki ki-arrow-backward font-weight-bold"></span>
+        <span class="font-weight-400">Back to Users</span>
+    </p>
+</div>
+<div class="card employee-profile-card mt-0 user-details" *ngIf="userData">
+    <div class="employee-profile-header gap-5 py-12 pl-16 box-shadow-none">
+        <div class="d-flex">
+            <app-user-profile-picture [imagePath]="userData.profilePicture" class="profile profile-60 mt-1"> </app-user-profile-picture>
+            <div class="employee-details">
+                <h5 class="">{{ userData.name }}</h5>
+                <span class="text-secondary">{{ userData.jobTitle }}</span>
+                <span class="text-secondary">{{ userData.department }}, {{ userData.location }}</span>
+                <div class="d-flex align-items-center mt-1">
+                    <i class="ki ki-thumb-up-fill text-accent-green"></i>
+                    <span class="mr-16">{{ userData.likes }}</span>
+                    <i class="ki ki-thumb-down-fill text-accent-red"></i>
+                    <span class="">{{ userData.disLikes }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex gap-2 align-items-center">
+            <div class="d-flex justify-content-center align-items-center flex-column p-20 border-radius-4 bg-secondary">
+                <h4 class="mb-1">{{ userData.questionsAsked }}</h4>
+                <span class="text-secondary text-x-small">Questions Asked</span>
+            </div>
+            <div class="d-flex justify-content-center align-items-center flex-sm-column p-20 border-radius-4 bg-secondary">
+                <h4 class="mb-1">{{ userData.questionsAnswered }}</h4>
+                <span class="text-secondary text-x-small">Questions Answered</span>
+            </div>
+            <div class="d-flex justify-content-center align-items-center flex-sm-column p-20 border-radius-4 bg-secondary">
+                <h4 class="mb-1">{{ userData.questionsSolved }}</h4>
+                <span class="text-secondary text-x-small">Questions Solved</span>
+            </div>
+        </div>
+    </div>
+
+    <ul class="nav sub-topnav border-top">
+        <li (click)="getAskedQuestions()" [class.active]="askedQuestionSelected"><a class="d-flex justify-content-center">Asked</a></li>
+        <li (click)="getAnsweredQuestions()" [class.active]="!askedQuestionSelected"><a class="d-flex justify-content-center">Answered</a></li>
+    </ul>
+</div>
+
+<app-questions [questions]="questionsList"></app-questions>

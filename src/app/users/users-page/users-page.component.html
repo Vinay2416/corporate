@@ -1,0 +1,10 @@
+<div class="bg-slate-10 border border-1px pl-16 pt-8 d-flex gap-4 align-items-end flex-wrap pb-20">
+    <app-filters [controls]="controls" [formGroup]="userfilterForm" (search)="loadUsers($event)"></app-filters>
+</div>
+
+<div class="no-gutters row pt-0 px-16 users-page">
+    <div class="col-default-3" *ngFor="let user of users">
+        <app-user [user]="user" (click)="onCardClick(user.id)"></app-user>
+    </div>
+</div>
+<p *ngIf="users && users.length === 0" class="p-8 text-large bg-white rounded-3 m-20">No users found</p>

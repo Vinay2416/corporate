@@ -1,0 +1,18 @@
+<div class="bg-white p-16 w-350 m-10 transition cursor-pointer category-card" *ngIf="category">
+    <div class="d-flex justify-content-between mb-4">
+        <h5 class="font-weight-semi-bold">{{ category.name }}</h5>
+        <p class="font-weight-semi-bold">({{ category.numberOfQuestions }})</p>
+    </div>
+    <p class="text-secondary mb-16">{{ category.description.length > 120 ? category.description.slice(0, 120) + '...' : category.description }}</p>
+    <p *ngIf="category.description.length > 120" (click)="onModalExpand(descriptionModal)" class="text-decoration-underline">Read More</p>
+</div>
+<ng-template #descriptionModal>
+    <div class="modal-header">
+        <h4 class="modal-title">Category Description</h4>
+        <span class="ki-close ki-xl" (click)="onModalClose()"></span>
+    </div>
+    <div class="modal-body">
+        <p class="bg-secondary p-2 rounded">{{ categoryName }}</p>
+        <p class="p-2">{{ categoryDescription }}</p>
+    </div>
+</ng-template>

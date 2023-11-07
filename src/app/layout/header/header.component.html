@@ -1,0 +1,31 @@
+<div class="navbar page-header fixed-top min-w-500">
+    <div class="nav-brand d-flex justify-content-center align-items-center w-100px h-100">
+        <img width="58" height="20" ngSrc="https://cdn.kekastatic.net/shared/branding/logo/keka-logo-light.svg" alt="keka" priority />
+    </div>
+    <div class="h-100 d-flex align-items-center">
+        <div class="page-header-left d-flex align-items-center">
+            <div class="user-options">
+                <span>{{ currentDate | date : 'd MMM yyyy' }}</span>
+                <span class="ki-sun mx-16 mt-4" (click)="handleTheme()"></span>
+                <span class="profile-name mr-20">{{ userName }}</span>
+                <div class="employee-profile-header" (click)="handlePopover($event)">
+                    <app-user-profile-picture [imagePath]="imagePath" class="profile profile-32"></app-user-profile-picture>
+                    <div class="dropdown-menu dropdown-menu-right" [class.show]="isPopoverOpen">
+                        <a class="dropdown-item" (click)="onLogout()"><i class="ki-power-off ki"></i> Logout</a>
+                        <div class="toggle-theme-container">
+                            <div class="pb-16">
+                                <div class="icon-color-picker theme-color-container">
+                                    <div class="btn-color bg-violet" (click)="handleMiniTheme('#76618b')"></div>
+                                    <div class="btn-color bg-pink" (click)="handleMiniTheme('#b64f79')"></div>
+                                    <div class="btn-color bg-green" (click)="handleMiniTheme('#5ca177')"></div>
+                                    <div class="btn-color bg-orange" (click)="handleMiniTheme('#e1983d')"></div>
+                                    <div class="btn-color bg-blue" (click)="handleMiniTheme('#2986ce')"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

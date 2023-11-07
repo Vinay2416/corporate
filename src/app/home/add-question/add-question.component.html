@@ -1,0 +1,30 @@
+<div class="modal-header">
+    <h4 class="modal-title">Add Question</h4>
+    <span class="ki-close ki-xl" (click)="onModalClose()"></span>
+</div>
+<div class="modal-body">
+    <form (ngSubmit)="onFormSubmission()" [formGroup]="questionForm">
+        <fieldset>
+            <div class="form-group w-75">
+                <label class="text-large font-weight-400">Question</label>
+                <input type="text" class="form-control text-normal" placeholder="Enter your Question" formControlName="name" />
+                <app-validation-message [validators]="validationMessages['name']" [control]="questionForm.get('name')" ></app-validation-message>
+            </div>
+            <div class="form-group">
+                <label class="text-large font-weight-400 w-100">Description</label>
+                <div class="w-100 h-200">
+                    <app-text-editor (onContentChange)="onEditorContentChange($event)"></app-text-editor>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="font-weight-semi-bold">Category</label>
+                <ng-select class="w-200" [items]="categories" bindLabel="name" bindValue="id" formControlName="category" [searchable]="false" placeholder="Select Category"></ng-select>
+                <app-validation-message [validators]="validationMessages['category']" [control]="questionForm.get('category')" ></app-validation-message>
+            </div>
+        </fieldset>
+        <div class="modal-footer pt-0">
+            <button class="btn bg-secondary text-white cancel-category" (click)="onModalClose()" type="button">Cancel</button>
+            <button class="btn save-category text-white" type="submit">Post</button>
+        </div>
+    </form>
+</div>

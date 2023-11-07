@@ -1,0 +1,23 @@
+<div class="bg-slate-10 border border-1px pl-16 pt-8 d-flex gap-4 align-items-end flex-wrap pb-20">
+    <app-filters [controls]="controls" [formGroup]="categoriesFilterForm" (search)="loadCategories($event)"></app-filters>
+    <div class="d-flex gap-2 align-items-center cursor-pointer mb-10 activate-item" (click)="onResetClick()">
+        <span class="ki ki-refresh ki-sm"></span>
+        <span class="text-secondary">Reset</span>
+    </div>
+
+    <div class="flex-grow-1 text-end pr-16 pt-24">
+        <button class="btn text-white font-weight-semi-bold ml-20 px-20" (click)="onShowModal(newCategory)" type="button">+ Category</button>
+    </div>
+</div>
+
+<p *ngIf="categories.length === 0" class="p-8 text-large bg-white rounded-3 m-20">No categories</p>
+
+<div class="d-flex max-w-900 flex-wrap m-10" *ngIf="categories">
+    <div *ngFor="let card of categories">
+        <app-categories-card [category]="card"></app-categories-card>
+    </div>
+</div>
+
+<ng-template #newCategory>
+    <app-new-category [modalRef]="modalRef" (categoryCreated)="getFilteredCategories()"></app-new-category>
+</ng-template>

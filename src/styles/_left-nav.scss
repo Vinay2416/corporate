@@ -1,0 +1,19 @@
+@import './variables';
+
+.left-nav,
+.navbar-nav {
+    background-color: var(--left-nav-bg) !important;
+}
+
+.nav-item a:hover,
+.left-nav .active a {
+    background-color: #505661 !important;
+    padding-top: 18px !important;
+}
+.theme-dark {
+    .nav-item a:hover,
+    .left-nav .active a {
+        background-color: #333d4e !important;
+        padding-top: 18px !important;
+    }
+}

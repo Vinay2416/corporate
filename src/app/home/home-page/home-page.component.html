@@ -1,0 +1,12 @@
+<div class="bg-slate-10 border border-1px pl-16 pt-8 d-flex gap-4 align-items-end flex-wrap pb-20">
+    <app-filters [controls]="controls" [formGroup]="filterForm" (search)="loadQuestions($event)" ></app-filters>
+    <div class="d-flex gap-2 align-items-center cursor-pointer mb-10 activate-item" (click)="onResetClick()">
+        <span class="ki ki-refresh ki-sm"></span>
+        <span class="text-secondary">Reset</span>
+    </div>
+    <button class="btn text-white font-weight-semi-bold ml-20 px-20 mt-20" (click)="onModalOpen(newQuestion)" type="button">+ Question</button>
+</div>
+<ng-template #newQuestion>
+    <app-add-question [modalRef]="modalRef" [categories]="controls['categoryId'].options" (questionAdded)="getQuestionsCount()"></app-add-question>
+</ng-template>
+<app-questions [questions]="questionsList" (pageChange)="onPageChange($event)" ></app-questions>

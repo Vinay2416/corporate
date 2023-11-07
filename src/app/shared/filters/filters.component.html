@@ -1,0 +1,12 @@
+<form class="d-flex gap-4 align-items-end flex-wrap" [formGroup]="formGroup">
+        <div class="form-group mb-0" *ngFor="let control of formControls">
+            <label class="font-weight-semi-bold">{{ controls[control]?.label }}</label>
+            <div *ngIf="controls[control]?.type === 'input'" class="input-search w-350">
+                <input type="text" placeholder="Search" class="form-control bg-white" [formControlName]="control" (input)="onFilterOptionChange()" />
+                <span class="ki ki-search ki-sm"> </span>
+            </div>
+            <ng-container *ngIf="controls[control]?.type === 'select'">
+                <ng-select class="w-200" [items]="controls[control]?.options" bindLabel="name" bindValue="id" [formControlName]="control" [searchable]="false" [compareWith]="compareOptions" (change)="onFilterOptionChange()"></ng-select>
+            </ng-container>
+        </div>
+</form>

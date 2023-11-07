@@ -1,0 +1,6 @@
+<ul class="nav topnav mt-50">
+    <li routerLinkActive="active"><a [routerLink]="['home']" class="">HOME</a></li>
+    <li routerLinkActive="active"><a [routerLink]="['categories']">CATEGORIES</a></li>
+    <li routerLinkActive="active"><a [routerLink]="['users']">USERS</a></li>
+    <li routerLinkActive="active"><a [routerLink]="['reportedQuestions']" *ngIf="userRole === 'Admin'">reported Questions</a></li>
+</ul>

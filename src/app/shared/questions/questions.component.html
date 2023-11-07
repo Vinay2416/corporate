@@ -1,0 +1,47 @@
+<div class="m-20 h-100 d-flex border rounded-2" *ngIf="questions.length > 0 ">
+    <div class=".rounded-left questions">
+        <div class="d-flex p-16 border-bottom position-relative cursor-pointer" *ngFor="let question of questions" [class.home-question]="question.isSolved" [routerLink]="['./', question.id]" routerLinkActive="selected-question" (click)="onQestionClick(question)">
+            <div class="d-flex flex-column align-items-center mr-16 employee-profile-header">
+                <app-user-profile-picture [imagePath]="question.profilePicture" class="profile profile-28 mb-20"></app-user-profile-picture>
+                <span class="ki ki-arrow-dropup ki-xl border-radius-20 hover-border text-link-hover" [class.bg-accent-aqua-light]="question.isVoted" (click)="onVoteToggle(question, $event)"></span>
+                <span class="font-weight-semi-bold text-large">{{ question.votes }}</span>
+            </div>
+            <div class="w-100">
+                <p class="text-large font-weight-semi-bold">{{ question.questionTitle }}</p>
+                <p class="text-secondary" [innerHTML]="question.description" class="question-description"></p>
+                <div class="hstack justify-content-between mt-16">
+                    <div class="hstack">
+                        <i class="ki ki-eye"></i>
+                        <span class="text-x-small text-secondary mx-4 views">{{ question.views }} Views</span>
+                        <button class="border border-radius-4 text-secondary bg-secondary ml-20 text-x-small ans-btn" type="button">{{ question.numberOfAnswers }} Answers</button>
+                    </div>
+                    <p class="text-secondary" *ngIf="!question.isSolved">{{ question.createdAt | customPipe }}</p>
+                    <p class="font-weight-semi-bold question-status text-accent-green" *ngIf="question.isSolved">Resolved</p>
+                </div>
+            </div>
+        </div>
+        <div class="py-8 d-flex justify-content-center align-items-center" *ngIf="pages.length>0">
+            <button type="button" [disabled]="currentPage === 1" (click)="previousPage()" class="btn bg-secondary h-30 pagination-btn mr-8">Previous</button>
+            <div class="scrollable" #pageScroll>
+                <ul class="pagination m-0 pl-0 pb-1">
+                    <li *ngFor="let page of pages" class="page-item mx-4 d-inline-block" #scrollItem>
+                        <a (click)="onPageSelection(page)" [class.bg-primary-color-light]="currentPage === page" class="page-link w-20 text-center rounded-circle d-inline-block">{{ page }}</a>
+                    </li>
+                </ul>
+            </div>
+            <button type="button" [disabled]="currentPage === totalPages" (click)="nextPage()" class="btn bg-secondary h-30 mx-8 pagination-btn">Next</button>
+            <label for="page-size">Page size: </label>
+            <input type="number" min="1" class="form-control text-normal h-100 bg-white w-38 ml-1 p-1" [(ngModel)]="pageSize" (change)="handlePageSize($event)" id="page-size" />
+        </div>
+    </div>
+    <div class="flex-grow-1 px-80 bg-slate-10 rounded-right answers-list">
+        <div class="h-100 text-center mt-100 pt-sm-5 min-h-450" *ngIf="!isQuestionSelected; else questionDetails">
+            <span class="ki ki-arrow-backward ki-52"></span>
+            <h4 class="text-secondary">Click on a Question to see all details</h4>
+        </div>
+        <ng-template #questionDetails>
+            <router-outlet></router-outlet>
+        </ng-template>
+    </div>
+</div>
+<p *ngIf="questions.length === 0" class="p-8 text-large bg-white rounded-3 m-20">No questions</p>

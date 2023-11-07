@@ -1,0 +1,14 @@
+@import './variables';
+
+.navbar.page-header {
+    background: none !important;
+    background-color: var(--primary-color) !important;
+}
+
+.nav-brand {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.ki-sun {
+    font-size: 18px;
+}

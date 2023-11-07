@@ -1,0 +1,17 @@
+<div id="toast-container" class="toast-top-right toast-container" *ngIf="toasterStatus">
+    <div class="ng-tns-c16-10 ng-star-inserted ng-trigger ng-trigger-flyInOut {{ toastType }} ngx-toastr" style="bottom: 0px; max-height: 200px; margin-top: 12px; max-width: 400px">
+        <div class="toastr-icon">
+            <i class="header-2 ki-{{ toastType == 'success' ? 'check' : toastType }} text-x-large"></i>
+        </div>
+        <div class="toastr-details ng-tns-c16-10">
+            <div class="title ng-tns-c16-10">
+                <h4 class="ng-tns-c16-10">{{ toastTypeName }}!</h4>
+            </div>
+            <div class="message ng-tns-c16-10">{{ message }}</div>
+            <a class="icon-click ng-tns-c16-10"><span class="icon icon-sm ic-close ng-tns-c16-10"></span></a>
+        </div>
+        <div class="p-12">
+            <i class="ki ki-close" (click)="onCancel()"></i>
+        </div>
+    </div>
+</div>
